@@ -132,6 +132,7 @@ public class DatabaseOperatorImpl implements DatabaseOperator {
 				applicationProperties.getAdminDatabase().getPort(),databaseName));
 		dataSource.setUsername(username);
 		dataSource.setPassword(password);
+		System.out.println(initSql);
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		try {
 			jdbcTemplate.execute(initSql);

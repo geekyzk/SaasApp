@@ -85,6 +85,8 @@ public class UserService {
             CreateDatabaseResult createDatabaseResult = databaseOperator.createDatabase(dbName, null);
             boolean createUserResult = databaseOperator.createUser(dbName, dbUsername, dbPassword);
             boolean initTablesResult = databaseOperator.initDbTables(dbName, dbUsername, dbPassword);
+            System.out.println(createUserResult);
+            System.out.println(initTablesResult);
             if (createUserResult&&initTablesResult) {
                 InitDatabaseResult databaseResult = InitDatabaseResult.builder()
                         .dbName(dbName)
@@ -96,12 +98,13 @@ public class UserService {
 
                 return databaseResult;
             }  else {
-                log.info("创建数据库用户失败，开始删除数据库({})", dbName);
+                log.info("Create database user error({})", dbName);
                 databaseOperator.dropDatabase(createDatabaseResult.getDbName());
                 return null;
             }
         } catch (Exception e) {
-            log.info("创建数据库失败");
+            log.info("create database error");
+            log.error("create database error", e);
             return null;
         }
     }
