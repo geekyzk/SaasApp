@@ -1,0 +1,1 @@
+CREATE TABLE `book` ( `id` varchar(40) NOT NULL,`author` varchar(20) DEFAULT NULL,`name` varchar(20) DEFAULT NULL,`publish_date` datetime DEFAULT CURRENT_TIMESTAMP,PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;

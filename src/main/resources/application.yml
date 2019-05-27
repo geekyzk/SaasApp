@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+application:
+  admin-database:
+    username: root
+    password: root
+    host: 10.66.222.99
+    port: 23306
+  cors:
+    allowed-origins: "*"
+    allowed-methods: "*"
+    allowed-headers: "*"
+    exposed-headers: "Link,X-Total-Count"
+    allow-credentials: true
+    max-age: 1800
+  security:
+    authentication:
+      jwt:
+        base64-secret: MjdkNTJiNDQyMWQwMGQyYzFjOWJjNGEyMDlmZWIwNDFkMzFjOWEzZDMxMTZiN2E5ZjMyMGJjNTg0ZWVhMDA2YTg1ODRmODg5OWJkYjdkMjQ3YzU1ODdjN2U4MWZlYmU5N2JjN2U1M2RmNzA2MjA1YzhlOGM0YmQ0ZDdmZGU0Njg=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000
+logging:
+  level:
+    root: info
